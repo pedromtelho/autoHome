@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import RPi.GPIO as GPIO
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__, template_folder='')
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -11,7 +11,7 @@ def index():
     if request.method == 'POST':
         if request.form.get('Varanda1ON') == 'Varanda1ON':
             GPIO.setup(2, GPIO.OUT)
-            GPIO.output(2, GPIO.HIGH)        
+            GPIO.output(2, GPIO.HIGH)
         elif request.form.get('Varanda2ON') == 'Varanda2ON':
             GPIO.setup(3, GPIO.OUT)
             GPIO.output(3, GPIO.HIGH)
